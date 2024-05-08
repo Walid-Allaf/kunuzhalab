@@ -14,6 +14,7 @@ import HeroTitle from "./common/HeroTitle";
 import SectionTitle from "./common/SectionTitle";
 import Title from "./common/Title";
 import SocialMediaSmall from "./common/SocialMediaSmall";
+import CounterUp from "./common/CounterUp";
 
 import Location from "./call-us/Location";
 import Communication from "./call-us/Communication";
@@ -33,6 +34,7 @@ export {
   SectionTitle,
   Title,
   SocialMediaSmall,
+  CounterUp,
   Location,
   Communication,
   TeamMembers,

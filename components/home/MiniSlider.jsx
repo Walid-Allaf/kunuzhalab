@@ -6,32 +6,38 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { CALLUS, MNIISLIDER } from "@/assets";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { CounterUp } from "..";
 
 const data = [MNIISLIDER, MNIISLIDER, MNIISLIDER, MNIISLIDER, MNIISLIDER];
 
 export default function MiniSlider() {
-  // let nums = document.querySelectorAll(".nums .num");
-  // let section = document.querySelector(".three");
-  // let started = false;
-  // window.onscroll = function () {
-  //   if (window.scrollY >= section.offsetTop) {
-  //     if (!started) {
-  //       nums.forEach((num) => startCount(num));
-  //     }
-  //     started = true;
-  //   }
-  // };
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      // When the section comes into view
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        // Perform any actions you want when the section becomes visible
+        console.log("Section is now visible");
+      } else {
+        setIsVisible(false);
+      }
+    });
 
-  // function startCount(el) {
-  //   let goal = el.dataset.goal;
-  //   let count = setInterval(() => {
-  //     el.textContent++;
-  //     if (el.textContent == goal) {
-  //       clearInterval(count);
-  //     }
-  //   }, 2000 / goal);
-  // }
+    // Start observing the section
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    // Cleanup: stop observing when component unmounts
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const [width, setWidth] = useState(0);
   useEffect(() => {
     setWidth(window.innerWidth);
@@ -68,61 +74,18 @@ export default function MiniSlider() {
             ))
           : "no images"}
       </Swiper>
-      <Box className="nums" sx={{ display: "flex", justifyContent: "space-between", gap: 0.5 }}>
-        <Box
-          sx={{
-            width: "100px",
-            display: "flex",
-            flexDirection: "column",
-            bgcolor: "#ECECEC",
-            borderRadius: "4px",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: "12px", sm: "14px" }, fontWeight: 500, color: "#000", py: 1 }}
-          >
-            Quantity
-          </Typography>
-          <Button className="num" data-goal="100" sx={{ color: "#FFF", fontWeight: 500 }}>
-            0
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            width: "100px",
-            display: "flex",
-            flexDirection: "column",
-            bgcolor: "#ECECEC",
-            borderRadius: "4px",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: "12px", sm: "14px" }, fontWeight: 500, color: "#000", py: 1 }}
-          >
-            Client
-          </Typography>
-          <Button className="num" data-goal="40" sx={{ color: "#FFF", fontWeight: 500 }}>
-            0
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            width: "100px",
-            display: "flex",
-            flexDirection: "column",
-            bgcolor: "#ECECEC",
-            borderRadius: "4px",
-          }}
-        >
-          <Typography
-            sx={{ fontSize: { xs: "12px", sm: "14px" }, fontWeight: 500, color: "#000", py: 1 }}
-          >
-            Countries
-          </Typography>
-          <Button className="num" data-goal="6" sx={{ color: "#FFF", fontWeight: 500 }}>
-            0
-          </Button>
-        </Box>
+      <Box
+        ref={sectionRef}
+        className="nums"
+        sx={{ display: "flex", justifyContent: "space-between", gap: 0.5 }}
+      >
+        {isVisible && (
+          <>
+            <CounterUp title="Quantity" start={0} end={100} timer={100} />
+            <CounterUp title="Client" start={0} end={40} timer={100} />
+            <CounterUp title="Countries" start={0} end={6} timer={100} />
+          </>
+        )}
       </Box>
     </Box>
   );
