@@ -14,5 +14,28 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.special-colors {
+
+@media ((max-width: 767px)) {
+  .leaflet-container {
+    width: 375px;
+    height: 150px;
+  }
+}
+@media ((max-width: 320px)) {
+  .leaflet-container {
+    width: 270px;
+    height: 150px;
+  }
+}
+@media ((min-width: 768px)) {
+  .leaflet-container {
+    width: 700px;
+    height: 300px;
+  }
+}
+@media ((min-width: 992px)) {
+  .leaflet-container {
+    width: 788px;
+    height: 300px;
+  }
 }

@@ -6,7 +6,15 @@ import { SocialMediaSmall } from "..";
 
 const Communication = () => {
   return (
-    <Box sx={{ my: 14, display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+    <Box
+      sx={{
+        my: { xs: 7, md: 14 },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 6,
+      }}
+    >
       <Typography sx={{ fontSize: { xs: "20px", md: "64px" }, fontWeight: { xs: 700, md: 600 } }}>
         Our Social Media Pages
       </Typography>

@@ -1,4 +1,4 @@
-import { LANDING, LANDINGLEFT, LANDINGRIGHT } from "@/assets";
+import { LANDINGLEFT, LANDINGRIGHT } from "@/assets";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +9,7 @@ const Landing = () => {
       className="landing-background"
       sx={{
         width: "100%",
-        minHeight: "634px",
+        minHeight: { xs: "500px", md: "634px" },
         display: "grid",
         placeItems: "center",
         position: "relative",
@@ -35,6 +35,8 @@ const Landing = () => {
           justifyContent: "space-between",
           p: { textAlign: "center" },
           mx: "auto",
+          position: "relative",
+          zIndex: 10,
         }}
       >
         <Typography sx={{ fontSize: { xs: "20px", sm: "48px" }, fontWeight: 700 }}>

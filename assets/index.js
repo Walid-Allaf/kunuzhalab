@@ -35,8 +35,14 @@ export { default as MAP } from "./map.png";
 export { default as MARKER } from "./marker.png";
 export { default as WHATSAPPCARD } from "./whatsapp-product-card.png";
 export { default as WHATSAPPLOGO } from "./whatsapp-logo.png";
+export { default as CONTACT } from "./contact.png";
+export { default as MENU } from "./menu.png";
 
 export { default as LAUUREL } from "./laurel.png";
 export { default as FRAGRANT } from "./fragrant.png";
 export { default as SOAP } from "./soap.png";
 export { default as OLIVE } from "./olive.png";
+
+export { default as QUANTITY } from "./quantity.png";
+export { default as CLIENT } from "./client.png";
+export { default as COUNTRIES } from "./countries.png";

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { CALLUS, MNIISLIDER } from "@/assets";
+import { CLIENT, COUNTRIES, MNIISLIDER, QUANTITY } from "@/assets";
 import { useEffect, useRef, useState } from "react";
 import { CounterUp } from "..";
 
@@ -19,7 +19,6 @@ export default function MiniSlider() {
       // When the section comes into view
       if (entry.isIntersecting) {
         setIsVisible(true);
-        // Perform any actions you want when the section becomes visible
         console.log("Section is now visible");
       } else {
         setIsVisible(false);
@@ -38,16 +37,9 @@ export default function MiniSlider() {
       }
     };
   }, []);
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      setWidth(window.innerWidth);
-    });
-  }, [width]);
   return (
-    <Box sx={{ textAlign: "center", width: { xs: "100%", sm: "25%" } }} className="three">
-      <Swiper slidesPerView={1} spaceBetween={10}>
+    <Box sx={{ textAlign: "center", width: { xs: "100%", sm: "27%" } }}>
+      <Swiper slidesPerView={1} spaceBetween={5}>
         {data.length > 0
           ? data.map((item, index) => (
               <SwiperSlide key={index}>
@@ -61,13 +53,7 @@ export default function MiniSlider() {
                       },
                     }}
                   >
-                    <Image
-                      // src={`data:image/jpeg;base64,${item.image1}`}
-                      src={item}
-                      alt="slider-img"
-                      width={0}
-                      height={0}
-                    />
+                    <Image src={item} alt="slider-img" width={0} height={0} />
                   </Box>
                 </Stack>
               </SwiperSlide>
@@ -81,9 +67,9 @@ export default function MiniSlider() {
       >
         {isVisible && (
           <>
-            <CounterUp title="Quantity" start={0} end={100} timer={100} />
-            <CounterUp title="Client" start={0} end={40} timer={100} />
-            <CounterUp title="Countries" start={0} end={6} timer={100} />
+            <CounterUp image={QUANTITY} title="Quantity" start={0} end={2000} timer={50} />
+            <CounterUp image={CLIENT} title="Client" start={0} end={40} timer={300} />
+            <CounterUp image={COUNTRIES} title="Countries" start={0} end={6} timer={3000} />
           </>
         )}
       </Box>

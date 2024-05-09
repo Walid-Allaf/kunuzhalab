@@ -1,7 +1,8 @@
 "use client";
 import { Box, Button, Typography } from "@mui/material";
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-const CounterUp = ({ title, start, end, timer = 50 }) => {
+const CounterUp = ({ image, title, start, end, timer = 50 }) => {
   const [state, setstate] = useState(null);
   const ref = useRef(start);
   const accumulator = end / 200;
@@ -36,8 +37,13 @@ const CounterUp = ({ title, start, end, timer = 50 }) => {
       >
         {title}
       </Typography>
-      <Button className="num" data-goal="100" sx={{ color: "#FFF", fontWeight: 500 }}>
-        {state}
+      <Button sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+        <Typography sx={{ color: "#FFF", fontWeight: 500 }}>{state}</Typography>
+        {title === "Countries" ? (
+          <Image src={image} alt="couter icon" width={14} height={24} />
+        ) : (
+          <Image src={image} alt="couter icon" width={24} height={18} />
+        )}
       </Button>
     </Box>
   );

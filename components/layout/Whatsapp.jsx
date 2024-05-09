@@ -6,9 +6,19 @@ import React from "react";
 
 const Whatsapp = () => {
   return (
-    <Box sx={{ pl: 3, pb: 1, position: "fixed", left: "10px", bottom: "10px", zIndex: 10 }}>
-      <Link href={"https://wa.me/963947769501?text=Hello from Golden Aleppo Soap"}>
-        <Image src={WHATSAPPLOGO} alt="whatsapp" width={60} height={60} />
+    <Box
+      sx={{
+        pl: 3,
+        pb: 1,
+        position: "fixed",
+        left: "10px",
+        bottom: "10px",
+        zIndex: 10,
+        "& img": { width: { xs: 70, sm: 92 }, height: { xs: 70, sm: 92 } },
+      }}
+    >
+      <Link href={"https://wa.me/963947769501?text=Hello from Kounoz Halab"}>
+        <Image src={WHATSAPPLOGO} alt="whatsapp" position="relative" />
       </Link>
     </Box>
   );

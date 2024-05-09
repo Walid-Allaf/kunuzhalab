@@ -1,5 +1,5 @@
 import { FRAGRANT, HEROTITLEBG, LAUUREL, OLIVE, SOAP, WHATSAPPCARD } from "@/assets";
-import { HeroTitle } from "@/components";
+import { HeroTitle, InfoDialog } from "@/components";
 import { Box, Button, Grid, Tab, Tabs, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,7 +56,8 @@ const page = async ({ params }) => {
         title={soaps.categoryName}
         image={soaps.categoryName.includes("Fragrant") ? FRAGRANT : LAUUREL}
       />
-      <Grid container spacing={2} className="special-colors" sx={{ mt: 8 }}>
+      <Box sx={{ my: { xs: 5, md: 10 } }}></Box>
+      <Grid container spacing={{ xs: 2, sm: 6 }} className="special-colors">
         {soaps.soaps.map((soap, index) => (
           <Grid item xs={6} sm={4} key={index}>
             <Box
@@ -66,20 +67,20 @@ const page = async ({ params }) => {
                 placeItems: "center",
                 borderRadius: "10px",
                 position: "relative",
-                // width: { md: "100%", xs: "150px" },
+                overflow: "hidden",
                 width: "100%",
-                minHeight: { xs: "140px", sm: "250", md: "290px" },
+                minHeight: { xs: "150px", sm: "250", md: "250px", lg: "350px" },
               }}
             >
-              <Image
-                // src={`data:image/jpeg;base64,${soap.image1}`}
-                src={SOAP}
-                alt="soap image"
-                layout="fill"
-                // objectFit="cover"
-              />
+              <Image src={`data:image/jpeg;base64,${soap.image1}`} alt="soap image" layout="fill" />
             </Box>
-            <Typography sx={{ fontSize: { xs: "16px", md: "40px" }, fontWeight: 700 }}>
+            <Typography
+              sx={{
+                fontSize: { xs: "16px", md: "40px" },
+                fontWeight: 700,
+                color: soap.color + "",
+              }}
+            >
               {soap.name}
             </Typography>
             <Typography
@@ -111,20 +112,20 @@ const page = async ({ params }) => {
                 justifyContent: "space-between",
               }}
             >
-              <Button>
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: { md: "24px", xs: "14px" },
-                    height: { md: "24px", xs: "14px" },
-                  }}
-                >
-                  <Image src={WHATSAPPCARD} alt="WHATSAPP CARD" layout="fill" objectFit="cover" />
-                </Box>
+              <Button sx={{ bgcolor: soap.color, ":hover": { bgcolor: soap.color + "cc" } }}>
+                <Link href={`https://wa.me/963947769501?text=${soap.name}`}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: { md: "24px", xs: "14px" },
+                      height: { md: "24px", xs: "14px" },
+                    }}
+                  >
+                    <Image src={WHATSAPPCARD} alt="WHATSAPP CARD" layout="fill" objectFit="cover" />
+                  </Box>
+                </Link>
               </Button>
-              <Button sx={{ fontSize: { xs: "8px", md: "14px" }, color: "#162625", flexGrow: 1 }}>
-                More Details
-              </Button>
+              <InfoDialog soap={soap} />
             </Box>
           </Grid>
         ))}
@@ -141,13 +142,6 @@ const page = async ({ params }) => {
           <Image src={OLIVE} alt="olive" layout="fill" objectFit="contain" />
         </Grid>
       </Grid>
-
-      {/* <Image
-        src={HEROTITLEBG}
-        alt="hero image"
-        height={271}
-        style={{ margin: "100px 0", marginLeft: "auto", marginRight: "auto" }}
-      /> */}
       <Box
         className="background"
         sx={{ width: "100%", height: { xs: "60px", sm: "150px", md: "271px" }, my: 5 }}

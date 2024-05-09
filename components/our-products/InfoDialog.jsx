@@ -1,0 +1,129 @@
+"use client";
+import { CONTACT } from "@/assets";
+import {
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Typography,
+} from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+
+const InfoDialog = ({ soap }) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  return (
+    <>
+      <Button
+        onClick={handleClickOpen}
+        sx={{
+          fontSize: { xs: "8px", md: "14px" },
+          color: "#162625",
+          bgcolor: soap.color,
+          ":hover": { bgcolor: soap.color + "cc" },
+          flexGrow: 1,
+        }}
+      >
+        More Details
+      </Button>
+
+      <Dialog open={open} onClose={handleClose} maxWidth={"lg"}>
+        <DialogContent
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            gap: { xs: 1, sm: 4 },
+            bgcolor: "#EBF1F080",
+            m: { xs: 0, sm: 3 },
+            borderRadius: "10px",
+          }}
+        >
+          <Box
+            sx={{
+              position: "relative",
+              background: "#F2F2F2",
+              borderRadius: "10px",
+              overflow: "hidden",
+              minWidth: { xs: "200px", sm: "200", md: "400px", lg: "400px" },
+              minHeight: { xs: "200px", sm: "200", md: "400px", lg: "400px" },
+            }}
+          >
+            <Image src={`data:image/jpeg;base64,${soap.image1}`} alt="soap image" layout="fill" />
+          </Box>
+          <Box>
+            <DialogTitle
+              sx={{ px: 0, pl: 2, fontSize: { xs: "24px", md: "40px" }, fontWeight: 700 }}
+            >
+              {soap.name}
+            </DialogTitle>
+            <DialogContentText sx={{ fontSize: { xs: "18px", md: "24px", lg: "32px" }, pl: 2 }}>
+              {soap.description}
+            </DialogContentText>
+            <Typography sx={{ fontSize: { xs: "16px", md: "24px" }, fontWeight: 700, mt: 3 }}>
+              Percentage
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                mt: 1,
+                mb: 3,
+              }}
+            >
+              <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
+                %{soap.oliveOil} Olive Oil
+              </Typography>
+              <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
+                %{soap.laurelOil} Laurel Oil
+              </Typography>
+            </Box>
+            <DialogActions sx={{ display: "flex", gap: 2, p: 0 }}>
+              <Button
+                sx={{
+                  bgcolor: "#35C536",
+                  ":hover": { bgcolor: "#35C536aa" },
+                  a: { display: "flex", alignItems: "center", gap: 1 },
+                  color: "#FFF",
+                  px: 4,
+                }}
+                // onClick={handleClose}
+              >
+                <Link href={`https://wa.me/963947769501?text=${soap.name}`}>
+                  <Image src={CONTACT} alt="contact" width={23} height={23} />
+                  <Box component={"span"}>Contact</Box>
+                </Link>
+              </Button>
+              <Box
+                sx={{
+                  bgcolor: "#EBF1F0",
+                  p: 0.9,
+                  borderRadius: "4px",
+                  fontWeight: 700,
+                  flexGrow: 1,
+                  textAlign: "center",
+                }}
+              >
+                Soap age: {soap.soapAge} years
+              </Box>
+            </DialogActions>
+          </Box>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+export default InfoDialog;

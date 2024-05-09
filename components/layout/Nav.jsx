@@ -2,13 +2,26 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Box, Typography } from "@mui/material";
+import { Typography, Box, Drawer, IconButton } from "@mui/material";
 import { LOGO } from "@/assets";
 import { NavItems } from "@/constants";
 import { usePathname } from "next/navigation";
+import { MENU } from "@/assets";
+import Links from "./Links";
 
 const Nav = () => {
   const pathname = usePathname();
+  const drawerWidth = 240;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isClosing, setIsClosing] = React.useState(false);
+
+  const handleDrawerClose = () => {
+    setIsClosing(true);
+    setMobileOpen(false);
+  };
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
   return (
     <>
       <Box
@@ -16,7 +29,7 @@ const Nav = () => {
           xs: "25px",
           md: "100px",
         }}
-        sx={{ display: "flex", justifyContent: "space-between" }}
+        sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
       >
         <Box
           component={Link}
@@ -24,12 +37,12 @@ const Nav = () => {
           sx={{
             "& img": {
               width: {
-                xs: "82px",
-                md: "169px",
+                xs: "73px",
+                md: "146px",
               },
               height: {
                 xs: "50px",
-                md: "102px",
+                md: "100px",
               },
             },
           }}
@@ -37,53 +50,48 @@ const Nav = () => {
           <Image src={LOGO} alt="logo" />
         </Box>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 3 }}>
-          {NavItems.map((item, index) => {
-            const { title, icon, active, path } = item;
-            return (
-              <Link href={path} key={index}>
-                <Box
-                  sx={{
-                    px: 1,
-                    position: "relative",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  <Image
-                    src={pathname.split("/")[1] === path.split("/")[1] ? active : icon}
-                    alt={title}
-                    width={20}
-                    height={20}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: "20px",
-                      fontWeight: 500,
-                      color: pathname.split("/")[1] === path.split("/")[1] ? "#F2B155" : "",
-                    }}
-                  >
-                    {title}
-                  </Typography>
-                  <Box
-                    sx={{
-                      width: "100%",
-                      height: "3px",
-                      bgcolor:
-                        pathname.split("/")[1] === path.split("/")[1] ? "#F2B155" : "transparent",
-                      borderRadius: "5px",
-                      position: "absolute",
-                      bottom: "-10px",
-                      left: 0,
-                    }}
-                  ></Box>
-                </Box>
-              </Link>
-            );
-          })}
+        <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <Links />
+        </Box>
+
+        <Box
+          component="nav"
+          sx={{ width: { sm: 240 }, flexShrink: { sm: 0 }, display: { xs: "block", sm: "none" } }}
+        >
+          <Drawer
+            variant="temporary"
+            open={mobileOpen}
+            onClose={handleDrawerClose}
+            sx={{
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+                minHeight: "100vh",
+              },
+            }}
+            anchor="left"
+          >
+            <Links onClose={handleDrawerClose} />
+          </Drawer>
         </Box>
       </Box>
+
+      <Box
+        sx={{
+          width: "100%",
+          height: "2px",
+          bgcolor: "primary.main",
+          opacity: "10%",
+          display: { sm: "none" },
+        }}
+      ></Box>
+      <IconButton
+        edge="end"
+        onClick={handleDrawerToggle}
+        sx={{ ml: 2, my: 1, display: { sm: "none" } }}
+      >
+        <Image src={MENU} alt="menu" width={15} height={12} />
+      </IconButton>
       <Box sx={{ width: "100%", height: "2px", bgcolor: "primary.main", opacity: "10%" }}></Box>
     </>
   );

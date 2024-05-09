@@ -20,6 +20,8 @@ import Location from "./call-us/Location";
 import Communication from "./call-us/Communication";
 import TeamMembers from "./call-us/TeamMembers";
 
+import InfoDialog from "./our-products/InfoDialog";
+
 export {
   Layout,
   Nav,
@@ -38,4 +40,5 @@ export {
   Location,
   Communication,
   TeamMembers,
+  InfoDialog,
 };

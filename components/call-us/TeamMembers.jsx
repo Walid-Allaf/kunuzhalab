@@ -9,18 +9,20 @@ import { CALLUS } from "@/assets";
 import { useEffect, useState } from "react";
 
 export default function TeamMembers({ data }) {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener("resize", () => {
-      // console.log(window.innerHeight, window.innerWidth);
-      setWidth(window.innerWidth);
-    });
-  }, [width]);
   return (
     <Box sx={{ textAlign: "center" }}>
       <Swiper
-        slidesPerView={width <= 600 ? 1 : width <= 1000 ? 2 : width <= 2000 ? 3 : 4}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+          },
+          639: {
+            slidesPerView: 3,
+          },
+        }}
         spaceBetween={10}
       >
         {data.length > 0
