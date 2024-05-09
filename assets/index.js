@@ -46,3 +46,7 @@ export { default as OLIVE } from "./olive.png";
 export { default as QUANTITY } from "./quantity.png";
 export { default as CLIENT } from "./client.png";
 export { default as COUNTRIES } from "./countries.png";
+
+export { default as LEFTTITLE } from "./left-title.png";
+export { default as RIGHTTITLE } from "./right-title.png";
+export { default as CLOSESQUARE } from "./close-square.png";

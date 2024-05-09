@@ -4,7 +4,18 @@ import Image from "next/image";
 import React from "react";
 import { MiniSlider } from "..";
 
-const World = () => {
+async function getImageSlider() {
+  const res = await fetch(`${process.env.BASE_URL}/ImageSlider/GetAll`, {
+    cache: "no-cache",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const World = async () => {
+  const imageSlider = await getImageSlider();
   return (
     <Box>
       <Typography
@@ -21,7 +32,7 @@ const World = () => {
         >
           <Image src={WORLDMAP} alt="world map" />
         </Box>
-        <MiniSlider />
+        <MiniSlider data={imageSlider} />
       </Box>
     </Box>
   );

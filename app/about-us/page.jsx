@@ -16,7 +16,6 @@ async function getStories() {
 
 const page = async () => {
   const stories = await getStories();
-  console.log("stories", stories);
   return (
     <Box
       px={{

@@ -8,7 +8,7 @@ import React from "react";
 
 async function getCategories() {
   const res = await fetch(`${process.env.BASE_URL}/Categories/GetAll`, {
-    // cache: "no-cache",
+    cache: "no-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -18,7 +18,7 @@ async function getCategories() {
 
 async function getSoaps(id) {
   const res = await fetch(`${process.env.BASE_URL}/Categories/WithSoaps/${id}`, {
-    // cache: "no-cache",
+    cache: "no-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -29,7 +29,6 @@ async function getSoaps(id) {
 const page = async ({ params }) => {
   const categories = await getCategories();
   const soaps = await getSoaps(params.category);
-  console.log(soaps);
   const imageStyle = {
     width: { xs: 14, md: 24 },
     height: { xs: 14, md: 24 },

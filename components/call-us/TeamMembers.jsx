@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { CALLUS } from "@/assets";
-import { useEffect, useState } from "react";
 
 export default function TeamMembers({ data }) {
   return (

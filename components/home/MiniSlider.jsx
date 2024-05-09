@@ -2,16 +2,15 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { CLIENT, COUNTRIES, MNIISLIDER, QUANTITY } from "@/assets";
+import { CLIENT, COUNTRIES, QUANTITY } from "@/assets";
 import { useEffect, useRef, useState } from "react";
 import { CounterUp } from "..";
 
-const data = [MNIISLIDER, MNIISLIDER, MNIISLIDER, MNIISLIDER, MNIISLIDER];
-
-export default function MiniSlider() {
+export default function MiniSlider({ data }) {
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -19,17 +18,14 @@ export default function MiniSlider() {
       // When the section comes into view
       if (entry.isIntersecting) {
         setIsVisible(true);
-        console.log("Section is now visible");
       } else {
         setIsVisible(false);
       }
     });
-
     // Start observing the section
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     // Cleanup: stop observing when component unmounts
     return () => {
       if (sectionRef.current) {
@@ -39,7 +35,20 @@ export default function MiniSlider() {
   }, []);
   return (
     <Box sx={{ textAlign: "center", width: { xs: "100%", sm: "27%" } }}>
-      <Swiper slidesPerView={1} spaceBetween={5}>
+      <Swiper
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        slidesPerView={1}
+        spaceBetween={5}
+      >
         {data.length > 0
           ? data.map((item, index) => (
               <SwiperSlide key={index}>
@@ -53,7 +62,12 @@ export default function MiniSlider() {
                       },
                     }}
                   >
-                    <Image src={item} alt="slider-img" width={0} height={0} />
+                    <Image
+                      src={`data:image/jpeg;base64,${item.image1}`}
+                      alt="slider-img"
+                      width={0}
+                      height={0}
+                    />
                   </Box>
                 </Stack>
               </SwiperSlide>

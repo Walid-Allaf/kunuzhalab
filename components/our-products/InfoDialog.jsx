@@ -1,5 +1,5 @@
 "use client";
-import { CONTACT } from "@/assets";
+import { CLOSESQUARE, CONTACT } from "@/assets";
 import {
   Box,
   Button,
@@ -8,6 +8,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  IconButton,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
@@ -40,6 +41,22 @@ const InfoDialog = ({ soap }) => {
       </Button>
 
       <Dialog open={open} onClose={handleClose} maxWidth={"lg"}>
+        <IconButton
+          onClick={handleClose}
+          sx={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            background: "#FFF",
+            p: 0,
+            zIndex: 2,
+            ":hover": {
+              background: "#FFF",
+            },
+          }}
+        >
+          <Image src={CLOSESQUARE} alt="CLOSE SQUARE" width={30} height={30} />
+        </IconButton>
         <DialogContent
           sx={{
             display: "flex",

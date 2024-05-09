@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 
 async function getCategories() {
   const res = await fetch(`${process.env.BASE_URL}/Categories/GetAll`, {
-    cache: "no-cache",
+    // cache: "no-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");

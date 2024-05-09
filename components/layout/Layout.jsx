@@ -1,5 +1,5 @@
 "use client";
-import { CssBaseline } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/themes";
 import { usePathname } from "next/navigation";
@@ -12,7 +12,9 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <NextTopLoader color="#004D40" showSpinner={false} />
+      <Box sx={{ height: 4 }}>
+        <NextTopLoader color="#004D40" showSpinner={false} />
+      </Box>
       <Nav />
 
       {children}

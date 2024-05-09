@@ -6,6 +6,7 @@ import Footer from "./layout/Footer";
 import Landing from "./home/Landing";
 import World from "./home/World";
 import MiniSlider from "./home/MiniSlider";
+import BestSelling from "./home/BestSelling";
 
 import CallUs from "./footer/CallUs";
 import SocialMedia from "./footer/SocialMedia";
@@ -30,6 +31,7 @@ export {
   Landing,
   World,
   MiniSlider,
+  BestSelling,
   CallUs,
   SocialMedia,
   HeroTitle,
