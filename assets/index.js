@@ -33,6 +33,7 @@ export { default as TITLEBG } from "./title-background.png";
 export { default as OURSTORY } from "./our-story.png";
 export { default as MAP } from "./map.png";
 export { default as MARKER } from "./marker.png";
+export { default as REDMARKER } from "./red-marker.png";
 export { default as WHATSAPPCARD } from "./whatsapp-product-card.png";
 export { default as WHATSAPPLOGO } from "./whatsapp-logo.png";
 export { default as CONTACT } from "./contact.png";

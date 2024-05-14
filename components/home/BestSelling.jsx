@@ -11,7 +11,7 @@ import { WHATSAPPCARD } from "@/assets";
 
 const BestSelling = ({ data }) => {
   return (
-    <Box sx={{ my: 5 }}>
+    <Box sx={{ my: 5, mx: { xs: "auto", sm: 0 }, width: { xs: "80%", sm: "100%" } }}>
       <Title value={"Best selling products"} />
       <Swiper
         breakpoints={{
@@ -41,7 +41,7 @@ const BestSelling = ({ data }) => {
                     position: "relative",
                     overflow: "hidden",
                     width: "100%",
-                    minHeight: { xs: "200px", lg: "350px" },
+                    minHeight: { xs: "200px", sm: "150px", lg: "350px" },
                   }}
                 >
                   <Image

@@ -59,3 +59,13 @@ export const SocialItemsCallUs = [
   { icon: CALLUSFACEBOOK, width: 56, height: 56, path: "/" },
   { icon: CALLUSTIKTOK, width: 44, height: 50, path: "/" },
 ];
+export const Countries = [
+  "Iraq",
+  "Saudi Arabia",
+  "America",
+  "Emirates",
+  "China",
+  "Europe",
+  "Japan",
+  "Canada",
+];

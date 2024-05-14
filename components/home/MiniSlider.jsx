@@ -34,7 +34,7 @@ export default function MiniSlider({ data }) {
     };
   }, []);
   return (
-    <Box sx={{ textAlign: "center", width: { xs: "100%", sm: "27%" } }}>
+    <Box sx={{ textAlign: "center", width: { xs: "80%", sm: "27%" } }}>
       <Swiper
         centeredSlides={true}
         autoplay={{
@@ -81,9 +81,9 @@ export default function MiniSlider({ data }) {
       >
         {isVisible && (
           <>
-            <CounterUp image={QUANTITY} title="Quantity" start={0} end={2000} timer={50} />
-            <CounterUp image={CLIENT} title="Client" start={0} end={40} timer={300} />
-            <CounterUp image={COUNTRIES} title="Countries" start={0} end={6} timer={3000} />
+            <CounterUp image={QUANTITY} title="Quantity" start={0} end={2000} timer={10} />
+            <CounterUp image={CLIENT} title="Client" start={0} end={40} timer={50} />
+            <CounterUp image={COUNTRIES} title="Countries" start={0} end={6} timer={100} />
           </>
         )}
       </Box>

@@ -9,7 +9,7 @@ const Landing = () => {
       className="landing-background"
       sx={{
         width: "100%",
-        minHeight: { xs: "500px", md: "634px" },
+        minHeight: { xs: "350px", md: "634px" },
         display: "grid",
         placeItems: "center",
         position: "relative",
@@ -55,7 +55,7 @@ const Landing = () => {
         sx={{
           position: "absolute",
           right: 0,
-          bottom: { xs: "-50px", md: "-150px" },
+          bottom: { xs: "-60px", md: "-150px" },
           "& img": { width: { xs: "170px", md: "485px" }, height: { xs: "266px", md: "760px" } },
         }}
       >
