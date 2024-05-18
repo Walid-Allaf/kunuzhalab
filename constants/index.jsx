@@ -62,10 +62,10 @@ export const SocialItemsCallUs = [
 export const Countries = [
   "Iraq",
   "Saudi Arabia",
-  "America",
+  "Malaysia",
   "Emirates",
   "China",
   "Europe",
-  "Japan",
-  "Canada",
+  "Kuwait",
+  "Lebanon",
 ];

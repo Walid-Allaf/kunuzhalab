@@ -82,26 +82,32 @@ const page = async ({ params }) => {
             >
               {soap.name}
             </Typography>
-            <Typography
-              sx={{
-                fontSize: { xs: "6px", md: "14px" },
-                fontWeight: 700,
-                color: "#FFD401",
-                textAlign: "end",
-              }}
-            >
-              Soap Age: {soap.soapAge} Years
-            </Typography>
-            <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>Percentage</Typography>
+            {soap.soapAge != 0 && (
+              <Typography
+                sx={{
+                  fontSize: { xs: "6px", md: "14px" },
+                  fontWeight: 700,
+                  color: "#FFD401",
+                  textAlign: "end",
+                }}
+              >
+                Soap Age: {soap.soapAge} Years
+              </Typography>
+            )}
+            {/* <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>Percentage</Typography> */}
             <Box
               sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", my: 1 }}
             >
-              <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                %{soap.oliveOil} Olive Oil
-              </Typography>
-              <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                %{soap.laurelOil} Laurel Oil
-              </Typography>
+              {soap.oliveOil != 0 && (
+                <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
+                  %{soap.oliveOil} Olive Oil
+                </Typography>
+              )}
+              {soap.laurelOil != 0 && (
+                <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
+                  %{soap.laurelOil} Laurel Oil
+                </Typography>
+              )}
             </Box>
             <Box
               sx={{
@@ -112,7 +118,7 @@ const page = async ({ params }) => {
               }}
             >
               <Button sx={{ bgcolor: soap.color, ":hover": { bgcolor: soap.color + "cc" } }}>
-                <Link href={`https://wa.me/963947769501?text=${soap.name}`}>
+                <Link href={`https://wa.me/963945534629?text=${soap.name}`}>
                   <Box
                     sx={{
                       position: "relative",

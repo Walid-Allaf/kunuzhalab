@@ -3,6 +3,7 @@ import { Box, Grid, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,6 +15,13 @@ const BestSelling = ({ data }) => {
     <Box sx={{ my: 5, mx: { xs: "auto", sm: 0 }, width: { xs: "80%", sm: "100%" } }}>
       <Title value={"Best selling products"} />
       <Swiper
+        centeredSlides={true}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        navigation={true}
+        modules={[Autoplay, Navigation]}
         breakpoints={{
           0: {
             slidesPerView: 1,
@@ -94,7 +102,7 @@ const BestSelling = ({ data }) => {
                   }}
                 >
                   <Button sx={{ bgcolor: soap.color, ":hover": { bgcolor: soap.color + "cc" } }}>
-                    <Link href={`https://wa.me/963947769501?text=${soap.name}`}>
+                    <Link href={`https://wa.me/963945534629?text=${soap.name}`}>
                       <Box
                         sx={{
                           position: "relative",

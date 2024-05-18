@@ -118,7 +118,7 @@ const InfoDialog = ({ soap }) => {
                 }}
                 // onClick={handleClose}
               >
-                <Link href={`https://wa.me/963947769501?text=${soap.name}`}>
+                <Link href={`https://wa.me/963945534629?text=${soap.name}`}>
                   <Image src={CONTACT} alt="contact" width={23} height={23} />
                   <Box component={"span"}>Contact</Box>
                 </Link>

@@ -17,7 +17,7 @@ const Whatsapp = () => {
         "& img": { width: { xs: 70, sm: 92 }, height: { xs: 70, sm: 92 } },
       }}
     >
-      <Link href={"https://wa.me/963947769501?text=Hello from Kounoz Halab"}>
+      <Link href={"https://wa.me/963945534629?text=Hello from Kounoz Halab"}>
         <Image src={WHATSAPPLOGO} alt="whatsapp" position="relative" />
       </Link>
     </Box>

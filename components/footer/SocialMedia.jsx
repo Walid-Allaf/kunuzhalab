@@ -15,7 +15,7 @@ const SocialMedia = () => {
     >
       <Typography sx={{ mb: 3, fontSize: "20px", fontWeight: 700 }}>SOCIAL MEDIA</Typography>
       <SocialMediaSmall />
-      <Typography sx={{ mt: 4 }}>Email: goldenAleppo@soap.com</Typography>
+      <Typography sx={{ mt: 4 }}>Email: info@kunuzhalab.com</Typography>
     </Box>
   );
 };

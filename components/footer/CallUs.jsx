@@ -10,21 +10,21 @@ const CallUs = () => {
           <Box component={"span"} color="#4C8279">
             Aleppo
           </Box>
-          ): (405) 555-0128
+          ):+963 945 534 629
         </Typography>
         <Typography>
           Call (
           <Box component={"span"} color="#4C8279">
-            Iraq
+            Erbil
           </Box>
-          ): (405) 555-0128
+          ): +964 751 015 2366
         </Typography>
         <Typography>
           Call (
           <Box component={"span"} color="#4C8279">
             Malaysia
           </Box>
-          ): (405) 555-0128
+          ): +60 14-537 4930
         </Typography>
       </Box>
     </Box>

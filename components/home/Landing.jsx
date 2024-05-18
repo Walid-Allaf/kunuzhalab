@@ -40,7 +40,10 @@ const Landing = () => {
         }}
       >
         <Typography sx={{ fontSize: { xs: "20px", sm: "48px" }, fontWeight: 700 }}>
-          Organic golden Aleppo soap
+          Kunuz Halab
+        </Typography>
+        <Typography sx={{ fontSize: { xs: "20px", sm: "48px" }, fontWeight: 700 }}>
+          Organic Aleppo soap
         </Typography>
         <Typography sx={{ fontSize: { xs: "14px", sm: "32px" } }}>
           Made from the finest natural materials, including olive oil and laurel oil, using ancient
