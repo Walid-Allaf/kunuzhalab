@@ -82,7 +82,7 @@ const page = async ({ params }) => {
             >
               {soap.name}
             </Typography>
-            {soap.soapAge != 0 && (
+            {/* {soap.soapAge != 0 && (
               <Typography
                 sx={{
                   fontSize: { xs: "6px", md: "14px" },
@@ -93,10 +93,15 @@ const page = async ({ params }) => {
               >
                 Soap Age: {soap.soapAge} Years
               </Typography>
-            )}
+            )} */}
             {/* <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>Percentage</Typography> */}
             <Box
-              sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", my: 1 }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                my: soap.laurelOil == 0 ? 3.2 : 2,
+              }}
             >
               {soap.oliveOil != 0 && (
                 <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
@@ -106,6 +111,18 @@ const page = async ({ params }) => {
               {soap.laurelOil != 0 && (
                 <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
                   %{soap.laurelOil} Laurel Oil
+                </Typography>
+              )}
+              {soap.soapAge != 0 && (
+                <Typography
+                  sx={{
+                    fontSize: { xs: "6px", md: "14px" },
+                    fontWeight: 700,
+                    color: "#FFD401",
+                    textAlign: "end",
+                  }}
+                >
+                  Soap Age: {soap.soapAge} Years
                 </Typography>
               )}
             </Box>

@@ -67,31 +67,49 @@ const BestSelling = ({ data }) => {
                 >
                   {soap.name}
                 </Typography>
-                <Typography
-                  sx={{
-                    fontSize: { xs: "6px", md: "14px" },
-                    fontWeight: 700,
-                    color: "#FFD401",
-                    textAlign: "end",
-                  }}
-                >
-                  Soap Age: {soap.soapAge} Years
-                </Typography>
-                <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>Percentage</Typography>
+                {/* {soap.soapAge != 0 && (
+                  <Typography
+                    sx={{
+                      fontSize: { xs: "6px", md: "14px" },
+                      fontWeight: 700,
+                      color: "#FFD401",
+                      textAlign: "end",
+                    }}
+                  >
+                    Soap Age: {soap.soapAge} Years
+                  </Typography>
+                )} */}
+                {/* <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>Percentage</Typography> */}
                 <Box
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    my: 1,
+                    my: soap.laurelOil == 0 ? 3.2 : 2,
                   }}
                 >
-                  <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                    %{soap.oliveOil} Olive Oil
-                  </Typography>
-                  <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                    %{soap.laurelOil} Laurel Oil
-                  </Typography>
+                  {soap.oliveOil != 0 && (
+                    <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
+                      %{soap.oliveOil} Olive Oil
+                    </Typography>
+                  )}
+                  {soap.laurelOil != 0 && (
+                    <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
+                      %{soap.laurelOil} Laurel Oil
+                    </Typography>
+                  )}
+                  {soap.soapAge != 0 && (
+                    <Typography
+                      sx={{
+                        fontSize: { xs: "6px", md: "14px" },
+                        fontWeight: 700,
+                        color: "#FFD401",
+                        textAlign: "end",
+                      }}
+                    >
+                      Soap Age: {soap.soapAge} Years
+                    </Typography>
+                  )}
                 </Box>
                 <Box
                   sx={{
