@@ -46,18 +46,23 @@ export const NavItems = [
   },
 ];
 export const SocialItems = [
-  { icon: FACEBOOK, path: "/" },
-  { icon: INSTAGRAM, path: "/" },
-  { icon: TELEGRAM, path: "/" },
-  { icon: TIKTOK, path: "/" },
-  { icon: YOUTUBE, path: "/" },
+  { icon: FACEBOOK, path: "https://www.facebook.com/kunuzhalab" },
+  { icon: INSTAGRAM, path: "https://www.instagram.com/kunuzhalab?igsh=OXpnNzRieWZhejI3" },
+  { icon: TELEGRAM, path: "https://t.me/kunuzhalab" },
+  { icon: TIKTOK, path: "https://tiktok.com/@kunuzhalab" },
+  { icon: YOUTUBE, path: "https://www.youtube.com/@kunuzHallab" },
 ];
 export const SocialItemsCallUs = [
-  { icon: CALLUSTELEGRAM, width: 51, height: 51, path: "/" },
-  { icon: CALLUSINSTAGRAM, width: 64, height: 64, path: "/" },
-  { icon: CALLUSYOUTUBE, width: 56, height: 56, path: "/" },
-  { icon: CALLUSFACEBOOK, width: 56, height: 56, path: "/" },
-  { icon: CALLUSTIKTOK, width: 44, height: 50, path: "/" },
+  { icon: CALLUSTELEGRAM, width: 51, height: 51, path: "https://t.me/kunuzhalab" },
+  {
+    icon: CALLUSINSTAGRAM,
+    width: 64,
+    height: 64,
+    path: "https://www.instagram.com/kunuzhalab?igsh=OXpnNzRieWZhejI3",
+  },
+  { icon: CALLUSYOUTUBE, width: 56, height: 56, path: "https://www.youtube.com/@kunuzHallab" },
+  { icon: CALLUSFACEBOOK, width: 56, height: 56, path: "https://www.facebook.com/kunuzhalab" },
+  { icon: CALLUSTIKTOK, width: 44, height: 50, path: "https://tiktok.com/@kunuzhalab" },
 ];
 export const Countries = [
   "Iraq",
