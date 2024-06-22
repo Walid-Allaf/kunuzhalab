@@ -88,9 +88,12 @@ const InfoDialog = ({ soap }) => {
             <DialogContentText sx={{ fontSize: { xs: "18px", md: "24px", lg: "32px" }, pl: 2 }}>
               {soap.description}
             </DialogContentText>
-            <Typography sx={{ fontSize: { xs: "16px", md: "24px" }, fontWeight: 700, mt: 3 }}>
-              Percentage
-            </Typography>
+            {soap.oliveOil !== "0" ||
+              (soap.laurelOil != "0" && (
+                <Typography sx={{ fontSize: { xs: "16px", md: "24px" }, fontWeight: 700, mt: 3 }}>
+                  Percentage
+                </Typography>
+              ))}
             <Box
               sx={{
                 display: "flex",
@@ -100,12 +103,16 @@ const InfoDialog = ({ soap }) => {
                 mb: 3,
               }}
             >
-              <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
-                %{soap.oliveOil} Olive Oil
-              </Typography>
-              <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
-                %{soap.laurelOil} Laurel Oil
-              </Typography>
+              {soap.oliveOil != "0" && (
+                <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
+                  %{soap.oliveOil} Olive Oil
+                </Typography>
+              )}
+              {soap.laurelOil != "0" && (
+                <Typography sx={{ fontSize: { xs: "16px", md: "24px" } }}>
+                  %{soap.laurelOil} Laurel Oil
+                </Typography>
+              )}
             </Box>
             <DialogActions sx={{ display: "flex", gap: 2, p: 0 }}>
               <Button
@@ -115,6 +122,7 @@ const InfoDialog = ({ soap }) => {
                   a: { display: "flex", alignItems: "center", gap: 1 },
                   color: "#FFF",
                   px: 4,
+                  flexGrow: 1,
                 }}
                 // onClick={handleClose}
               >
@@ -123,18 +131,20 @@ const InfoDialog = ({ soap }) => {
                   <Box component={"span"}>Contact</Box>
                 </Link>
               </Button>
-              <Box
-                sx={{
-                  bgcolor: "#EBF1F0",
-                  p: 0.9,
-                  borderRadius: "4px",
-                  fontWeight: 700,
-                  flexGrow: 1,
-                  textAlign: "center",
-                }}
-              >
-                Soap age: {soap.soapAge} years
-              </Box>
+              {soap.soapAge != "0" && (
+                <Box
+                  sx={{
+                    bgcolor: "#EBF1F0",
+                    p: 0.9,
+                    borderRadius: "4px",
+                    fontWeight: 700,
+                    flexGrow: 1,
+                    textAlign: "center",
+                  }}
+                >
+                  Soap age: {soap.soapAge} years
+                </Box>
+              )}
             </DialogActions>
           </Box>
         </DialogContent>
