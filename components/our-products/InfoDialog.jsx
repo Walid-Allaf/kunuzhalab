@@ -73,8 +73,8 @@ const InfoDialog = ({ soap }) => {
               background: "#F2F2F2",
               borderRadius: "10px",
               overflow: "hidden",
-              minWidth: { xs: "200px", sm: "200", md: "400px", lg: "400px" },
-              minHeight: { xs: "200px", sm: "200", md: "400px", lg: "400px" },
+              minWidth: { xs: "200px", sm: "200px", md: "400px", lg: "400px" },
+              aspectRatio: { xs: "1.8 / 2", sm: "1 / 1" },
             }}
           >
             <Image src={`data:image/jpeg;base64,${soap.image1}`} alt="soap image" layout="fill" />
