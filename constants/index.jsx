@@ -64,6 +64,12 @@ export const SocialItemsCallUs = [
   { icon: CALLUSFACEBOOK, width: 56, height: 56, path: "https://www.facebook.com/kunuzhalab" },
   { icon: CALLUSTIKTOK, width: 44, height: 50, path: "https://tiktok.com/@kunuzhalab" },
 ];
+export const EmailAddress = "info@kunuzhalab.com";
+export const MobileNumbers = [
+  { country: "Aleppo", number: "+963 945 534 629" },
+  { country: "Erbil", number: "+964 751 015 2366" },
+  { country: "Malaysia", number: "+60 14-537 4930" },
+];
 export const Countries = [
   "Iraq",
   "Saudi Arabia",

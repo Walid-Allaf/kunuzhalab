@@ -43,7 +43,7 @@ const page = async ({ params }) => {
                 bgcolor: params.category == category.categoryId ? "#EBF1F080" : "#FFF",
                 color: params.category == category.categoryId ? "primary.main" : "#596063B2",
                 fontWeight: 700,
-                fontSize: { xs: "6px", md: "16px" },
+                fontSize: { xs: "11px", md: "16px" },
                 minHeight: "20px",
               }}
               label={category.categoryName}

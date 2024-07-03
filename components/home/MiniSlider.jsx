@@ -36,6 +36,7 @@ export default function MiniSlider({ data }) {
   return (
     <Box sx={{ textAlign: "center", width: { xs: "80%", sm: "27%" } }}>
       <Swiper
+        loop
         centeredSlides={true}
         autoplay={{
           delay: 2500,

@@ -1,5 +1,7 @@
 import { Communication, HeroTitle, Location, SectionTitle, TeamMembers } from "@/components";
+import { EmailAddress, MobileNumbers } from "@/constants";
 import { Box, Typography } from "@mui/material";
+import Link from "next/link";
 
 async function getTeamMembers() {
   const res = await fetch(`${process.env.BASE_URL}/TeamMembers/GetAll`, {
@@ -31,34 +33,19 @@ const page = async () => {
           "& p": { fontSize: { xs: "16px", md: "24px" }, fontWeight: 500 },
         }}
       >
-        <Typography>
-          Office (
-          <Box component={"span"} color="#4C8279">
-            Aleppo
-          </Box>
-          ): +963 945 534 629
-        </Typography>
-        <Typography>
-          Office (
-          <Box component={"span"} color="#4C8279">
-            Erbil
-          </Box>
-          ): +964 751 015 2366
-        </Typography>
-        <Typography>
-          Office (
-          <Box component={"span"} color="#4C8279">
-            Malaysia
-          </Box>
-          ): +60 14-537 4930
-        </Typography>
+        {MobileNumbers.map((mobileNumber) => (
+          <Typography key={mobileNumber.country}>
+            Office (
+            <Box component={"span"} color="#4C8279">
+              {mobileNumber.country}
+            </Box>
+            ): <Link href={`tel:${mobileNumber.number}`}>{mobileNumber.number}</Link>
+          </Typography>
+        ))}
       </Box>
       <Typography sx={{ mt: 6, textAlign: "center", fontSize: { xs: "16px", md: "32px" } }}>
-        Email: info@kunuzhalab.com
+        Email: <Link href={`mailto:${EmailAddress}`}>{EmailAddress}</Link>
       </Typography>
-      {/* <SectionTitle value="OUR TEAM" /> */}
-      {/* <TeamMembers data={teamMembers} /> */}
-      {/* <Location /> */}
       <Communication />
     </Box>
   );

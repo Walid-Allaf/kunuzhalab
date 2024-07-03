@@ -15,6 +15,7 @@ const BestSelling = ({ data }) => {
     <Box sx={{ my: 5, mx: { xs: "auto", sm: 0 }, width: { xs: "80%", sm: "100%" } }}>
       <Title value={"Best selling products"} />
       <Swiper
+        loop
         centeredSlides={true}
         autoplay={{
           delay: 2000,

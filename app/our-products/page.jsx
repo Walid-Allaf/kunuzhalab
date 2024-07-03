@@ -12,7 +12,7 @@ async function getCategories() {
 
 const page = async () => {
   const category = await getCategories();
-  redirect(`/our-products/${category[0]?.categoryId}`);
+  redirect(`/our-products/${category[1]?.categoryId}`);
 };
 
 export default page;

@@ -1,5 +1,6 @@
+import { LOGO } from "@/assets";
 import { NavItems } from "@/constants";
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -18,6 +19,10 @@ const Links = (props) => {
         gap: 3,
       }}
     >
+      <Box component={Link} href={"/"} sx={{ width: "100%", display: { xs: "block", sm: "none" } }}>
+        <Image src={LOGO} alt="logo" width={90} height={50} />
+        <Divider sx={{ mt: 1 }} />
+      </Box>
       {NavItems.map((item, index) => {
         const { title, icon, active, path } = item;
         return (

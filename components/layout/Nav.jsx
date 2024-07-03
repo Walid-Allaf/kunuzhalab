@@ -34,12 +34,12 @@ const Nav = () => {
           sx={{
             "& img": {
               width: {
-                xs: "73px",
+                xs: "90px",
                 md: "146px",
               },
               height: {
                 xs: "50px",
-                md: "100px",
+                md: "80px",
               },
             },
           }}
