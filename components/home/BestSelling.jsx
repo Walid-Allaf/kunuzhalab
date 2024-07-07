@@ -50,7 +50,7 @@ const BestSelling = ({ data }) => {
                     position: "relative",
                     overflow: "hidden",
                     width: "100%",
-                    minHeight: { xs: "200px", sm: "150px", lg: "350px" },
+                    minHeight: { xs: "250px", sm: "150px", lg: "350px" },
                   }}
                 >
                   <Image
