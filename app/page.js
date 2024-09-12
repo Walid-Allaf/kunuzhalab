@@ -5,7 +5,7 @@ import { FROMTO } from "@/assets";
 
 async function getBestSelling() {
   const res = await fetch(`${process.env.BASE_URL}/Soaps/GetAllMostWanted`, {
-    cache: "no-cache",
+    cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");

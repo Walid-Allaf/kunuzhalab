@@ -8,7 +8,7 @@ import React from "react";
 
 async function getCategories() {
   const res = await fetch(`${process.env.BASE_URL}/Categories/GetAll`, {
-    cache: "no-cache",
+    // cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -18,7 +18,7 @@ async function getCategories() {
 
 async function getSoaps(id) {
   const res = await fetch(`${process.env.BASE_URL}/Categories/WithSoaps/${id}`, {
-    cache: "no-cache",
+    cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -51,10 +51,7 @@ const page = async ({ params }) => {
           </Link>
         ))}
       </Box>
-      <HeroTitle
-        title={soaps.categoryName}
-        image={soaps.categoryName.includes("Fragrant") ? FRAGRANT : LAUUREL}
-      />
+      <HeroTitle title={soaps.categoryName} image={soaps.categoryName.includes("Fragrant") ? FRAGRANT : LAUUREL} />
       <Box sx={{ my: { xs: 5, md: 10 } }}></Box>
       <Grid container spacing={{ xs: 2, sm: 6 }} className="special-colors">
         {soaps.soaps.map((soap, index) => (
@@ -103,16 +100,8 @@ const page = async ({ params }) => {
                 my: soap.laurelOil == 0 ? 3.2 : 2,
               }}
             >
-              {soap.oliveOil != 0 && (
-                <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                  %{soap.oliveOil} Olive Oil
-                </Typography>
-              )}
-              {soap.laurelOil != 0 && (
-                <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>
-                  %{soap.laurelOil} Laurel Oil
-                </Typography>
-              )}
+              {soap.oliveOil != 0 && <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>%{soap.oliveOil} Olive Oil</Typography>}
+              {soap.laurelOil != 0 && <Typography sx={{ fontSize: { xs: "6px", md: "14px" } }}>%{soap.laurelOil} Laurel Oil</Typography>}
               {soap.soapAge != 0 && (
                 <Typography
                   sx={{
@@ -164,10 +153,7 @@ const page = async ({ params }) => {
           <Image src={OLIVE} alt="olive" layout="fill" objectFit="contain" />
         </Grid>
       </Grid>
-      <Box
-        className="background"
-        sx={{ width: "100%", height: { xs: "60px", sm: "150px", md: "271px" }, my: 5 }}
-      ></Box>
+      <Box className="background" sx={{ width: "100%", height: { xs: "60px", sm: "150px", md: "271px" }, my: 5 }}></Box>
     </Box>
   );
 };

@@ -6,7 +6,7 @@ import React from "react";
 
 async function getStories() {
   const res = await fetch(`${process.env.BASE_URL}/Stories/GetAll`, {
-    cache: "no-cache",
+    cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -51,9 +51,7 @@ const page = async () => {
                   >
                     {title}
                   </Typography>
-                  <Typography sx={{ fontSize: { xs: "16px", md: "32px" }, lineHeight: 1.8 }}>
-                    {description}
-                  </Typography>
+                  <Typography sx={{ fontSize: { xs: "16px", md: "32px" }, lineHeight: 1.8 }}>{description}</Typography>
                 </Box>
                 <Box
                   sx={{
@@ -67,11 +65,7 @@ const page = async () => {
                     minHeight: { xs: "250px", sm: "250", md: "250px", lg: "400px" },
                   }}
                 >
-                  <Image
-                    src={`data:image/jpeg;base64,${image1}`}
-                    alt="about us image"
-                    layout="fill"
-                  />
+                  <Image src={`data:image/jpeg;base64,${image1}`} alt="about us image" layout="fill" />
                 </Box>
               </Grid>
             );

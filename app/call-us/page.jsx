@@ -5,7 +5,7 @@ import Link from "next/link";
 
 async function getTeamMembers() {
   const res = await fetch(`${process.env.BASE_URL}/TeamMembers/GetAll`, {
-    cache: "no-cache",
+    cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");

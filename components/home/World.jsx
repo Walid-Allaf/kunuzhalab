@@ -7,7 +7,7 @@ import { Countries } from "@/constants";
 
 async function getImageSlider() {
   const res = await fetch(`${process.env.BASE_URL}/ImageSlider/GetAll`, {
-    cache: "no-cache",
+    cache: "force-cache",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -19,14 +19,10 @@ const World = async () => {
   const imageSlider = await getImageSlider();
   return (
     <Box>
-      <Typography
-        sx={{ fontSize: { xs: "20px", md: "48px" }, fontWeight: 700, textAlign: "center", mb: 2 }}
-      >
+      <Typography sx={{ fontSize: { xs: "20px", md: "48px" }, fontWeight: 700, textAlign: "center", mb: 2 }}>
         Customers in The World
       </Typography>
-      <Box
-        sx={{ display: "flex", alignItems: "center", flexDirection: { xs: "column", sm: "row" } }}
-      >
+      <Box sx={{ display: "flex", alignItems: "center", flexDirection: { xs: "column", sm: "row" } }}>
         <Box
           sx={{
             display: { xs: "none", sm: "flex" },
@@ -44,9 +40,7 @@ const World = async () => {
             "& p": { textAlign: "center", textTransform: "uppercase" },
           }}
         >
-          <Typography sx={{ color: "#cb2830", fontSize: "18px", fontWeight: 700 }}>
-            We proudly export our products
-          </Typography>
+          <Typography sx={{ color: "#cb2830", fontSize: "18px", fontWeight: 700 }}>We proudly export our products</Typography>
           <Typography sx={{ fontSize: "18px", fontWeight: 700 }}>To all global markets</Typography>
           <Grid container spacing={2} sx={{ mt: 3, mb: 4, width: "80%" }}>
             {Countries.map((country, i) => (
